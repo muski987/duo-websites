@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://duowebsites.in/sitemap.xml
