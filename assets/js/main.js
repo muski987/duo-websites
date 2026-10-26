@@ -65,7 +65,7 @@
   }
 
   // Case study recordings: a gold line runs across the bottom, then rises and opens the frame.
-  gsap.utils.toArray('.case-media .project__media').forEach(function (media) {
+  gsap.utils.toArray('.case-media .project__media, .shot .project__media').forEach(function (media) {
     var line = document.createElement('span');
     line.className = 'media-line';
     line.setAttribute('aria-hidden', 'true');

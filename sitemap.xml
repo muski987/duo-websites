@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://duowebsites.in/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <image:image><image:loc>https://duowebsites.in/assets/img/og.png</image:loc></image:image>
   </url>
   <url>
@@ -24,5 +24,10 @@
     <loc>https://duowebsites.in/work/growmedex</loc>
     <lastmod>2026-10-23</lastmod>
     <image:image><image:loc>https://duowebsites.in/assets/img/og-growmedex.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://duowebsites.in/work/hook-creator-collabs</loc>
+    <lastmod>2026-10-26</lastmod>
+    <image:image><image:loc>https://duowebsites.in/assets/img/og-hook-creator-collabs.jpg</image:loc></image:image>
   </url>
 </urlset>
