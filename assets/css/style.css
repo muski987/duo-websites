@@ -1400,3 +1400,35 @@ body { font-size: clamp(15px, 0.2vw + 13.6px, 17px); }
 .quote { margin: clamp(28px, 3vw, 44px) 0 0; padding-left: clamp(16px, 2vw, 28px); border-left: 2px solid var(--gold); }
 .quote blockquote { margin: 0; font-size: clamp(17px, 1.2vw, 21px); line-height: 1.45; }
 .quote figcaption { margin-top: 14px; }
+
+/* v3.12: FAQ, styled like the service rows; native <details> so it works without JS. */
+.faq__list { border-top: 1px solid var(--line); }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__q {
+  position: relative;
+  display: block;
+  padding: clamp(20px, 2.6vw, 32px) 48px clamp(20px, 2.6vw, 32px) 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(19px, 1.8vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.3s;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 400;
+  color: var(--gold);
+  transition: transform 0.4s var(--ease);
+}
+.faq__item[open] .faq__q::after { transform: translateY(-50%) rotate(45deg); }
+.faq__q:hover { color: var(--gold); }
+.faq__q:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.faq__a { max-width: 40em; padding: 0 0 clamp(20px, 2.6vw, 32px); color: var(--muted); }
