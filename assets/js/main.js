@@ -87,13 +87,13 @@
     });
   });
 
-  workReel();
+  workList();
   processSteps();
 
-  // Service rows slide in one after another.
+  // Service rows slide in one after another. Only movement, never hidden: the text stays
+  // readable even if the reveal never runs (full-page captures, or no scroll yet).
   gsap.utils.toArray('.service').forEach(function (row) {
     gsap.from(row.children, {
-      opacity: 0,
       y: 30,
       duration: 0.9,
       stagger: 0.1,
@@ -230,159 +230,25 @@
     }
   }
 
-  // Work reel: the projects sit on a curve in 3D. The centre card faces you and plays its site
-  // recording; the others lean away and show the client's logo. Arrows, keys, drag or a click turn it.
-  function workReel() {
-    var reel = document.querySelector('.reel');
-    if (!reel) return;
-    var list = reel.querySelector('.reel__list');
-    var originals = gsap.utils.toArray('.reel__item', list);
-    var count = originals.length;
-    if (count < 2) return;
-
-    // A second set of cards fills the curve so the loop never shows a gap. Copies are hidden from screen readers.
-    originals.forEach(function (item) {
-      var copy = item.cloneNode(true);
-      copy.setAttribute('aria-hidden', 'true');
-      copy.querySelectorAll('a, button').forEach(function (a) { a.setAttribute('tabindex', '-1'); });
-      list.appendChild(copy);
-    });
-    var items = gsap.utils.toArray('.reel__item', list);
-    var total = items.length;
-    var glow = document.createElement('span');
-    glow.className = 'reel__glow';
-    glow.setAttribute('aria-hidden', 'true');
-    reel.insertBefore(glow, list);
-    reel.classList.add('is-live');
-
-    var dots = reel.querySelectorAll('.reel__dots span');
-    var active = 0;
-    var current = items.map(function () { return 0; });
-
-    function offsetOf(i) {
-      var d = ((i - active) % total + total) % total;
-      return d > total / 2 ? d - total : d;
-    }
-
-    function place(i, d, instant) {
-      var card = items[i].querySelector('.reel__card');
-      var w = reel.offsetWidth;
-      var cw = card.offsetWidth;
-      var a = Math.abs(d);
-      var props = {
-        x: d * Math.min(cw * 0.82, w * 0.36) + (a > 1 ? Math.sign(d) * cw * 0.12 : 0),
-        z: -a * 320,
-        rotationY: -d * 32,
-        rotationZ: d * 3,
-        // Cards two steps out would show through the near ones' outer edges in 3D, so only one card shows each side.
-        opacity: a >= 2 ? 0 : a === 1 ? 0.75 : 1,
-        filter: 'brightness(' + (1 - Math.min(a, 2) * 0.08) + ')',
-        zIndex: 10 - a
-      };
-      // Cards wrapping round the back jump while invisible instead of sweeping across the front.
-      var jump = Math.abs(d - current[i]) > total / 2;
-      current[i] = d;
-      if (instant || jump) gsap.set(card, props);
-      else gsap.to(card, Object.assign({ duration: 1, ease: 'expo.out' }, props));
-    }
-
-    function render(instant) {
-      items.forEach(function (item, i) { place(i, offsetOf(i), instant); });
-      var real = active % count;
-      items.forEach(function (item, i) {
-        var on = i === active;
-        item.classList.toggle('is-active', on);
-        // Only the outer strip of a side card shows past the front card, so its logo sits on that outer side.
-        var d = offsetOf(i);
-        item.dataset.side = d === -1 ? 'l' : d === 1 ? 'r' : '';
-        var info = item.querySelector('.reel__info');
-        gsap.to(info, { autoAlpha: on && i < count ? 1 : 0, y: on ? 0 : 16, duration: on ? 0.6 : 0.25, delay: on ? 0.25 : 0, ease: ease });
-        var link = item.querySelector('.reel__card');
-        if (i < count) link.setAttribute('tabindex', on ? '0' : '-1');
-        var video = item.querySelector('video');
-        if (on) {
-          if (!video.src) video.src = video.dataset.src;
-          video.play().catch(function () {});
+  // Work: the five projects stack down the page. Each card loads and plays its site recording
+  // while it is on screen; until then it shows the client's logo.
+  function workList() {
+    var items = document.querySelectorAll('.reel__item');
+    if (!items.length || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var item = entry.target;
+        var video = item.querySelector('.reel__video');
+        if (!video) return;
+        if (entry.isIntersecting) {
+          if (!video.getAttribute('src')) video.src = video.dataset.src;
+          video.play().then(function () { item.classList.add('is-playing'); }).catch(function () {});
         } else if (!video.paused) {
           video.pause();
         }
       });
-      // The copy of a project shows the original's details.
-      if (active >= count) {
-        gsap.to(items[real].querySelector('.reel__info'), { autoAlpha: 1, y: 0, duration: 0.6, delay: 0.25, ease: ease });
-      }
-      glow.style.color = getComputedStyle(items[active]).getPropertyValue('--glow');
-      dots.forEach(function (dot, i) {
-        dot.style.backgroundColor = i === real ? glow.style.color : '';
-      });
-    }
-
-    function go(step) {
-      active = ((active + step) % total + total) % total;
-      render();
-    }
-
-    reel.querySelectorAll('.reel__btn').forEach(function (btn) {
-      btn.addEventListener('click', function () { go(Number(btn.dataset.dir)); });
-    });
-    reel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
-    });
-
-    // A click on a side card brings it to the front; only the front card opens its case study.
-    var dragged = false;
-    items.forEach(function (item, i) {
-      item.querySelector('.reel__card').addEventListener('click', function (e) {
-        if (dragged) { e.preventDefault(); e.stopImmediatePropagation(); return; }
-        if (i !== active) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          go(offsetOf(i));
-        }
-      }, true);
-    });
-
-    var startX = null;
-    reel.addEventListener('pointerdown', function (e) {
-      if (e.target.closest('.reel__info, .reel__controls')) return;
-      startX = e.clientX;
-      dragged = false;
-    });
-    window.addEventListener('pointerup', function (e) {
-      if (startX === null) return;
-      var dx = e.clientX - startX;
-      startX = null;
-      if (Math.abs(dx) > 50) {
-        dragged = true;
-        go(dx < 0 ? 1 : -1);
-        setTimeout(function () { dragged = false; }, 50);
-      }
-    });
-
-    // The video only plays while the reel is on screen.
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        var v = items[active].querySelector('video');
-        if (entries[0].isIntersecting) v.play().catch(function () {});
-        else v.pause();
-      }).observe(reel);
-    }
-
-    render(true);
-    window.addEventListener('resize', function () { render(true); });
-
-    // Entrance: the cards swing in from deep in the scene.
-    gsap.from(items.map(function (it) { return it.querySelector('.reel__card'); }).filter(function (c, i) { return Math.abs(offsetOf(i)) < 3; }), {
-      z: -1200,
-      opacity: 0,
-      duration: 1.4,
-      stagger: 0.08,
-      ease: 'expo.out',
-      clearProps: 'filter',
-      onComplete: function () { render(true); },
-      scrollTrigger: { trigger: reel, start: 'top 80%', once: true }
-    });
+    }, { threshold: 0.35 });
+    items.forEach(function (item) { io.observe(item); });
   }
 
   // Process: a gold line runs through the five steps and lights each one as it passes.

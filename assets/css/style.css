@@ -1325,3 +1325,13 @@ body { font-size: clamp(15px, 0.2vw + 13.6px, 17px); }
 @media (max-width: 820px) {
   .shots { grid-template-columns: 1fr; }
 }
+
+/* v3.8: the five projects stack down the page instead of the carousel, each card beside its details. */
+.reel__list { grid-template-columns: 1fr; gap: clamp(56px, 7vw, 104px); }
+.reel__item { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.reel__info { margin-top: 0; }
+.reel__item.is-playing .reel__logo { opacity: 0; }
+@media (max-width: 820px) {
+  .reel__item { grid-template-columns: 1fr; gap: 0; }
+  .reel__info { margin-top: 22px; }
+}

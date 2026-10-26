@@ -28,7 +28,7 @@
 
   <link rel="preload" href="/assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=3.7.0">
+  <link rel="stylesheet" href="/assets/css/style.css?v=3.8.0">
 
   <script>
     (function (c) {
@@ -218,8 +218,8 @@
         <span class="rule" aria-hidden="true"></span>
       </div>
 
-      <!-- Work reel: a curved 3D carousel. Without JS (or with reduced motion) it is a plain list. -->
-      <div class="reel" aria-roledescription="carousel" aria-label="Selected work">
+      <!-- Work: all five projects stacked down the page, each card beside its details and links. -->
+      <div class="reel" aria-label="Selected work">
         <ol class="reel__list">
         <li class="reel__item" style="--brand-bg: #f2f2f2; --glow: #b3202d">
           <a class="reel__card" href="/work/city-rental" aria-label="City Rental case study" tabindex="-1">
@@ -296,28 +296,6 @@
           </div>
         </li>
         </ol>
-        <div class="reel__controls">
-          <button class="reel__btn" type="button" data-dir="-1" aria-label="Previous project">&larr;</button>
-          <div class="reel__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-          <button class="reel__btn" type="button" data-dir="1" aria-label="Next project">&rarr;</button>
-        </div>
-      </div>
-
-      <!-- Upcoming: two clothing brands DUO is working with now. Names and demos stay private until launch. -->
-      <div class="upcoming">
-        <p class="label">Upcoming</p>
-        <ul class="upcoming__list">
-          <li class="upcoming__card">
-            <span class="upcoming__tag">In progress</span>
-            <h3 class="upcoming__name">Clothing brand</h3>
-            <p class="upcoming__text">A website for a fashion label. The name stays under wraps until launch.</p>
-          </li>
-          <li class="upcoming__card">
-            <span class="upcoming__tag">In progress</span>
-            <h3 class="upcoming__name">Clothing brand</h3>
-            <p class="upcoming__text">A second fashion label we're building for. Revealed when it goes live.</p>
-          </li>
-        </ul>
       </div>
 
       <div class="work-cta">
@@ -459,6 +437,6 @@
 
   <script src="/assets/vendor/gsap.min.js?v=3.13.0" defer></script>
   <script src="/assets/vendor/ScrollTrigger.min.js?v=3.13.0" defer></script>
-  <script src="/assets/js/main.js?v=3.7.0" defer></script>
+  <script src="/assets/js/main.js?v=3.8.0" defer></script>
 </body>
 </html>
