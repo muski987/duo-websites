@@ -545,7 +545,6 @@ ol, ul { padding: 0; list-style: none; }
   .js .rule { transform: scaleX(0); }
   .js .hero__label,
   .js .hero__tag,
-  .js .hero__foot,
   .js body:not(.is-case) .nav { opacity: 0; }
   .js .project__media { clip-path: inset(99.5% 0 0 0); }
 }
@@ -1326,12 +1325,79 @@ body { font-size: clamp(15px, 0.2vw + 13.6px, 17px); }
   .shots { grid-template-columns: 1fr; }
 }
 
-/* v3.8: the five projects stack down the page instead of the carousel, each card beside its details. */
-.reel__list { grid-template-columns: 1fr; gap: clamp(56px, 7vw, 104px); }
-.reel__item { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
-.reel__info { margin-top: 0; }
-.reel__item.is-playing .reel__logo { opacity: 0; }
-@media (max-width: 820px) {
-  .reel__item { grid-template-columns: 1fr; gap: 0; }
-  .reel__info { margin-top: 22px; }
+/* v3.10: Selected work as an editorial index. The first project is a full-width feature; the rest
+   alternate sides on a 12-column grid, each row opened by a hairline and an outlined number. */
+.reel__list { grid-template-columns: 1fr; gap: 0; counter-reset: none; }
+.reel__item {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(20px, 3vw, 48px);
+  align-items: center;
+  padding: clamp(48px, 7vw, 112px) 0;
+  border-top: 1px solid var(--line);
 }
+.reel__card { grid-column: 1 / span 8; box-shadow: 0 50px 90px -50px var(--glow); transition: transform 0.9s var(--ease), box-shadow 0.9s var(--ease); }
+.reel__info { grid-column: 9 / -1; margin-top: 0; }
+.reel__item:nth-child(even) .reel__card { grid-column: 5 / -1; grid-row: 1; }
+.reel__item:nth-child(even) .reel__info { grid-column: 1 / span 4; grid-row: 1; }
+.reel__card img.reel__video, .reel__card video { transition: transform 1.2s var(--ease); }
+.reel__card:hover { transform: translateY(-6px); box-shadow: 0 70px 110px -50px var(--glow); }
+.reel__card:hover .reel__video { transform: scale(1.03); }
+.reel__item.is-playing .reel__logo { opacity: 0; }
+
+.reel__num {
+  display: block;
+  margin-bottom: clamp(10px, 1.6vw, 22px);
+  font-weight: 800;
+  font-size: clamp(44px, 5vw, 84px);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold);
+}
+.reel__of { font-size: 13px; font-weight: 500; letter-spacing: 0.2em; color: var(--muted); -webkit-text-stroke: 0; margin-left: 10px; vertical-align: top; }
+
+/* The first project leads: the card runs the full width and its details sit in one row underneath. */
+.reel__item:first-child .reel__card { grid-column: 1 / -1; aspect-ratio: 1280 / 560; }
+.reel__item:first-child .reel__video { object-position: top center; }
+.reel__item:first-child .reel__info {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr);
+  column-gap: clamp(20px, 3vw, 48px);
+  grid-auto-flow: row dense;
+  align-items: start;
+  row-gap: 8px;
+  margin-top: clamp(28px, 3.4vw, 48px);
+}
+.reel__head { display: flex; flex-direction: column; gap: 8px; }
+.reel__item:first-child .reel__info { grid-template-rows: auto auto auto 1fr; }
+.reel__item:first-child .reel__info > * { grid-column: 2; }
+.reel__item:first-child .reel__head { grid-column: 1; grid-row: 1 / span 4; }
+.reel__item:first-child .project__status,
+.reel__item:first-child .project__links { grid-column: 3; }
+.reel__item:first-child .reel__head .reel__name { font-size: clamp(32px, 4.4vw, 68px); }
+
+@media (max-width: 820px) {
+  .reel__item, .reel__item:first-child .reel__info { display: block; }
+  .reel__item { padding: 48px 0; }
+  .reel__item:first-child .reel__card { aspect-ratio: 1280 / 606; }
+  .reel__info, .reel__item:first-child .reel__info { margin-top: 26px; }
+  .reel__card:hover { transform: none; }
+}
+
+/* v3.9: the hero line names who DUO builds for. */
+.hero__lead { display: block; margin-bottom: 6px; color: var(--paper); font-family: var(--display); font-weight: 700; font-size: clamp(20px, 1.9vw, 28px); line-height: 1.2; letter-spacing: -0.02em; }
+
+/* v3.9.1: on desktop the hero copy fades in after the letters; on a phone it is there from the first paint. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 821px) {
+  .js .hero__foot { opacity: 0; }
+}
+
+/* v3.9.2: typical timelines under the process heading. */
+.process__time { max-width: 34em; color: var(--muted); font-size: clamp(16px, 1.1vw, 19px); line-height: 1.5; }
+
+/* v3.9.4: client quote inside a case block. */
+.quote { margin: clamp(28px, 3vw, 44px) 0 0; padding-left: clamp(16px, 2vw, 28px); border-left: 2px solid var(--gold); }
+.quote blockquote { margin: 0; font-size: clamp(17px, 1.2vw, 21px); line-height: 1.45; }
+.quote figcaption { margin-top: 14px; }

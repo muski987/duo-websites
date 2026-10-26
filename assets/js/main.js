@@ -121,7 +121,9 @@
 
     var seen = false;
     try { seen = sessionStorage.getItem('duo-intro') === '1'; sessionStorage.setItem('duo-intro', '1'); } catch (e) {}
-    if (seen || arrivedByWipe || window.scrollY > 40) {
+    // Phones skip the typed DUO loader so the agency line shows straight away.
+    var phone = window.matchMedia('(max-width: 820px)').matches;
+    if (seen || arrivedByWipe || phone || window.scrollY > 40) {
       heroIn(arrivedByWipe ? 0.35 : 0);
       return;
     }
@@ -238,7 +240,7 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var item = entry.target;
-        var video = item.querySelector('.reel__video');
+        var video = item.querySelector('video.reel__video');
         if (!video) return;
         if (entry.isIntersecting) {
           if (!video.getAttribute('src')) video.src = video.dataset.src;

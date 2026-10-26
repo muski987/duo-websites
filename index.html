@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DUO · Web Design &amp; Development Studio in Mumbai</title>
-  <meta name="description" content="DUO is a web design and development studio in Mumbai, India. We design and build fast, custom websites for brands in India and worldwide.">
+  <meta name="description" content="DUO is a web design and development studio in Mumbai, India. We build websites and internal tools for talent and marketing agencies, and fast, custom sites for brands worldwide.">
   <meta name="theme-color" content="#f3efe7">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://duowebsites.in/">
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="DUO">
   <meta property="og:locale" content="en_IN">
   <meta property="og:title" content="DUO · Web Design &amp; Development Studio in Mumbai">
-  <meta property="og:description" content="DUO is a web design and development studio in Mumbai, India. We design and build fast, custom websites for brands in India and worldwide.">
+  <meta property="og:description" content="DUO is a web design and development studio in Mumbai, India. We build websites and internal tools for talent and marketing agencies, and fast, custom sites for brands worldwide.">
   <meta property="og:url" content="https://duowebsites.in/">
   <meta property="og:image" content="https://duowebsites.in/assets/img/og.png">
   <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="DUO, built for the web. Web design and development, Mumbai.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DUO · Web Design &amp; Development Studio in Mumbai">
-  <meta name="twitter:description" content="DUO is a web design and development studio in Mumbai, India. We design and build fast, custom websites for brands in India and worldwide.">
+  <meta name="twitter:description" content="DUO is a web design and development studio in Mumbai, India. We build websites and internal tools for talent and marketing agencies, and fast, custom sites for brands worldwide.">
   <meta name="twitter:image" content="https://duowebsites.in/assets/img/og.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
@@ -28,7 +28,7 @@
 
   <link rel="preload" href="/assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=3.8.0">
+  <link rel="stylesheet" href="/assets/css/style.css?v=3.10.0">
 
   <script>
     (function (c) {
@@ -94,7 +94,8 @@
         "knowsAbout": [
           "Web design",
           "Web development",
-          "Website redesign",
+          "Talent roster websites",
+          "Internal dashboards",
           "Online booking systems"
         ],
         "hasOfferCatalog": {
@@ -105,24 +106,32 @@
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Business websites",
-                "description": "Company and brand sites, designed around the client's logo and audience."
+                "name": "Roster & portfolio sites",
+                "description": "Talent rosters that brands can filter, compare and shortlist."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Bookings & payments",
-                "description": "Online booking, Razorpay payments and a simple admin panel for rentals, studios and services."
+                "name": "Dashboards & internal tools",
+                "description": "Creator and client dashboards with secure logins."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Redesigns",
-                "description": "Rebuilding existing sites that look dated or load slowly."
+                "name": "Agency & brand websites",
+                "description": "Sites for agencies, studios and companies, designed around the client's logo and audience."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bookings & enquiries",
+                "description": "Booking and enquiry flows, with Razorpay payments and a simple admin panel."
               }
             },
             {
@@ -186,15 +195,18 @@
     <section class="hero" aria-label="Introduction">
       <!-- Revealed when the DUO letters move away on scroll: the "Need a website?" reel, used with its owner's permission (per Keshav), brand ending cut. -->
       <div class="hero__media" aria-hidden="true">
-        <video src="/assets/video/hero-reel.mp4?v=3.7.0" poster="/assets/img/hero-reel.jpg?v=3.7.0" muted loop playsinline preload="none"></video>
+        <video poster="/assets/img/hero-reel.jpg?v=3.7.0" muted loop playsinline preload="none">
+          <source src="/assets/video/hero-reel-mobile.mp4?v=3.8.0" type="video/mp4" media="(max-width: 820px)">
+          <source src="/assets/video/hero-reel.mp4?v=3.8.0" type="video/mp4">
+        </video>
       </div>
       <p class="hero__caption">
         <span class="label">Design &amp; development</span>
         <span>Mumbai, India · working worldwide</span>
       </p>
-      <p class="label hero__label">Web design &amp; development · Mumbai</p>
+      <p class="label hero__label">Studio for agencies · Mumbai</p>
       <h1 class="hero__mark">
-        <span class="sr">DUO, web design and development studio in Mumbai</span>
+        <span class="sr">DUO, websites and internal tools for talent and marketing agencies, from Mumbai</span>
         <span class="hero__clip" aria-hidden="true"><span class="hero__letter">D</span></span><span class="hero__clip" aria-hidden="true"><span class="hero__letter">U</span></span><span class="hero__clip" aria-hidden="true"><span class="hero__letter">O</span></span>
       </h1>
       <div class="hero__base">
@@ -202,9 +214,11 @@
         <p class="label hero__tag">Built for the web.</p>
       </div>
       <div class="hero__foot">
-        <p class="hero__intro">We design and build websites for businesses that have outgrown templates. Based in Mumbai, working with clients in India and abroad.</p>
+        <p class="hero__intro"><strong class="hero__lead">Websites and internal tools for talent and marketing agencies.</strong> Based in Mumbai, working with clients in India and abroad.</p>
         <div class="hero__actions">
           <a class="pill" href="https://forms.gle/XCRPEVhUxZXFAvqr5" target="_blank" rel="noopener">Fill the project form ↗<span class="sr"> (opens in a new tab)</span></a>
+          <a class="pill pill--ghost" href="https://wa.me/918668202281?text=Hi%20DUO%2C%20I%27d%20like%20to%20talk%20about%20a%20website." target="_blank" rel="noopener">WhatsApp<span class="sr"> +91 86682 02281 (opens WhatsApp)</span></a>
+          <a class="pill pill--ghost" href="tel:+918668202281">Call +91 86682 02281</a>
           <a class="pill pill--ghost" href="#work">See the work</a>
         </div>
       </div>
@@ -221,19 +235,41 @@
       <!-- Work: all five projects stacked down the page, each card beside its details and links. -->
       <div class="reel" aria-label="Selected work">
         <ol class="reel__list">
-        <li class="reel__item" style="--brand-bg: #f2f2f2; --glow: #b3202d">
-          <a class="reel__card" href="/work/city-rental" aria-label="City Rental case study" tabindex="-1">
-            <span class="reel__logo"><img src="/assets/img/brands/city-rental.jpg" alt="" width="720" height="678" loading="lazy" decoding="async"></span>
-            <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/city-rental.jpg" data-src="/assets/video/city-rental.mp4"></video>
+        <li class="reel__item" style="--brand-bg: #000000; --glow: #deb075">
+          <a class="reel__card" href="/work/hook-media" aria-label="Hook Media Management case study" tabindex="-1">
+            <span class="reel__logo"><img src="/assets/img/brands/hook-media.jpg" alt="" width="720" height="647" loading="lazy" decoding="async"></span>
+            <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/hook-media.jpg" data-src="/assets/video/hook-media.mp4"></video>
           </a>
           <div class="reel__info">
-            <span class="reel__num">01 / 05</span>
-            <h3 class="reel__name"><a href="/work/city-rental">City Rental</a></h3>
-            <p class="reel__type">Bike &amp; car rental</p>
-            <p class="reel__desc">A rental site built around the brand's red-and-white shield badge.</p>
-            <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
-            <span class="project__links"><a class="link" href="/work/city-rental">Case study</a>
-            <a class="link link--quiet" href="https://cityrental.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> (opens in a new tab)</span></a></span>
+            <div class="reel__head">
+              <span class="reel__num">01<span class="reel__of"> / 05</span></span>
+              <h3 class="reel__name"><a href="/work/hook-media">Hook Media Management</a></h3>
+              <p class="reel__type">Creator &amp; influencer management</p>
+            </div>
+            <p class="reel__desc">A roster of tech creators that brands can filter, compare and shortlist for a campaign.</p>
+            <p class="reel__desc">Hook's team now screen-shares the site on brand calls to walk through the roster, creator by creator.</p>
+            <p class="project__status"><span class="dot dot--live" aria-hidden="true"></span>Live · 2026</p>
+            <span class="project__links"><a class="link" href="/work/hook-media">Case study</a>
+            <a class="link link--quiet" href="https://hookmgmt.in" target="_blank" rel="noopener">Visit hookmgmt.in<span class="sr"> (opens in a new tab)</span></a></span>
+          </div>
+        </li>
+        <li class="reel__item" style="--brand-bg: #000000; --glow: #7c83f5">
+          <a class="reel__card" href="/work/hook-creator-collabs" aria-label="Hook Creator Collabs case study" tabindex="-1">
+            <picture>
+              <source type="image/webp" srcset="/assets/img/work/hook-creator-collabs-card-800.webp 800w, /assets/img/work/hook-creator-collabs-card.webp 1280w" sizes="(max-width: 820px) 92vw, 54vw">
+              <img class="reel__video" src="/assets/img/work/hook-creator-collabs-card.jpg" srcset="/assets/img/work/hook-creator-collabs-card-800.jpg 800w, /assets/img/work/hook-creator-collabs-card.jpg 1280w" sizes="(max-width: 820px) 92vw, 54vw" alt="Hook Creator Collabs dashboard with sample data: team stats and a red banner showing 2 creators running behind" width="1280" height="606" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="reel__info">
+            <div class="reel__head">
+              <span class="reel__num">02<span class="reel__of"> / 05</span></span>
+              <h3 class="reel__name"><a href="/work/hook-creator-collabs">Hook Creator Collabs</a></h3>
+              <p class="reel__type">Internal tool · CRM · Dashboard · Supabase · Vercel</p>
+            </div>
+            <p class="reel__desc">Some creators at Hook were getting most of the brand deals while others went weeks without one. We built a CRM that logs every collab and flags who's falling behind.</p>
+            <p class="reel__desc">Private by design: passwordless login, and each creator sees only their own data.</p>
+            <p class="project__status"><span class="dot" aria-hidden="true"></span>Internal tool — demo on request</p>
+            <span class="project__links"><a class="link" href="/work/hook-creator-collabs">Case study</a></span>
           </div>
         </li>
         <li class="reel__item" style="--brand-bg: #efefef; --glow: #c8102e">
@@ -242,28 +278,15 @@
             <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/titan-studios.jpg" data-src="/assets/video/titan-studios.mp4"></video>
           </a>
           <div class="reel__info">
-            <span class="reel__num">02 / 05</span>
-            <h3 class="reel__name"><a href="/work/titan-studios">Titan Studios</a></h3>
-            <p class="reel__type">Film production</p>
+            <div class="reel__head">
+              <span class="reel__num">03<span class="reel__of"> / 05</span></span>
+              <h3 class="reel__name"><a href="/work/titan-studios">Titan Studios</a></h3>
+              <p class="reel__type">Film production</p>
+            </div>
             <p class="reel__desc">A cinematic site themed on the studio's black-and-white logo, with a single red accent.</p>
             <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
             <span class="project__links"><a class="link" href="/work/titan-studios">Case study</a>
             <a class="link link--quiet" href="https://titanstudios.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> (opens in a new tab)</span></a></span>
-          </div>
-        </li>
-        <li class="reel__item" style="--brand-bg: #000000; --glow: #deb075">
-          <a class="reel__card" href="/work/hook-media" aria-label="Hook Media Management case study" tabindex="-1">
-            <span class="reel__logo"><img src="/assets/img/brands/hook-media.jpg" alt="" width="720" height="647" loading="lazy" decoding="async"></span>
-            <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/hook-media.jpg" data-src="/assets/video/hook-media.mp4"></video>
-          </a>
-          <div class="reel__info">
-            <span class="reel__num">03 / 05</span>
-            <h3 class="reel__name"><a href="/work/hook-media">Hook Media Management</a></h3>
-            <p class="reel__type">Creator &amp; influencer management</p>
-            <p class="reel__desc">A roster of tech creators that brands can filter, compare and shortlist for a campaign.</p>
-            <p class="project__status"><span class="dot dot--live" aria-hidden="true"></span>Live · 2026</p>
-            <span class="project__links"><a class="link" href="/work/hook-media">Case study</a>
-            <a class="link link--quiet" href="https://hookmgmt.in" target="_blank" rel="noopener">Visit hookmgmt.in<span class="sr"> (opens in a new tab)</span></a></span>
           </div>
         </li>
         <li class="reel__item" style="--brand-bg: #fefefe; --glow: #3f9b3c">
@@ -272,27 +295,32 @@
             <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/growmedex.jpg" data-src="/assets/video/growmedex.mp4"></video>
           </a>
           <div class="reel__info">
-            <span class="reel__num">04 / 05</span>
-            <h3 class="reel__name"><a href="/work/growmedex">GrowMedex</a></h3>
-            <p class="reel__type">Pharmaceutical export</p>
+            <div class="reel__head">
+              <span class="reel__num">04<span class="reel__of"> / 05</span></span>
+              <h3 class="reel__name"><a href="/work/growmedex">GrowMedex</a></h3>
+              <p class="reel__type">Pharmaceutical export</p>
+            </div>
             <p class="reel__desc">A catalogue of 600+ products for a pharmaceutical export company, sorted by dosage form and therapy.</p>
             <p class="project__status"><span class="dot dot--live" aria-hidden="true"></span>Live · 2026</p>
             <span class="project__links"><a class="link" href="/work/growmedex">Case study</a>
             <a class="link link--quiet" href="https://growmedex.com" target="_blank" rel="noopener">Visit growmedex.com<span class="sr"> (opens in a new tab)</span></a></span>
           </div>
         </li>
-        <li class="reel__item" style="--brand-bg: #000000; --glow: #7c83f5">
-          <a class="reel__card" href="/work/hook-creator-collabs" aria-label="Hook Creator Collabs case study" tabindex="-1">
-            <span class="reel__logo"><img src="/assets/img/brands/hook-media.jpg" alt="" width="720" height="647" loading="lazy" decoding="async"></span>
-            <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/hook-creator-collabs.jpg" data-src="/assets/video/hook-creator-collabs.mp4"></video>
+        <li class="reel__item" style="--brand-bg: #f2f2f2; --glow: #b3202d">
+          <a class="reel__card" href="/work/city-rental" aria-label="City Rental case study" tabindex="-1">
+            <span class="reel__logo"><img src="/assets/img/brands/city-rental.jpg" alt="" width="720" height="678" loading="lazy" decoding="async"></span>
+            <video class="reel__video" muted loop playsinline preload="none" poster="/assets/img/work/city-rental.jpg" data-src="/assets/video/city-rental.mp4"></video>
           </a>
           <div class="reel__info">
-            <span class="reel__num">05 / 05</span>
-            <h3 class="reel__name"><a href="/work/hook-creator-collabs">Hook Creator Collabs</a></h3>
-            <p class="reel__type">Internal tool · CRM · Dashboard · Supabase · Vercel</p>
-            <p class="reel__desc">An internal CRM that makes sure every creator at a talent agency gets a fair share of brand deals.</p>
-            <p class="project__status"><span class="dot" aria-hidden="true"></span>Internal tool — demo on request</p>
-            <span class="project__links"><a class="link" href="/work/hook-creator-collabs">Case study</a></span>
+            <div class="reel__head">
+              <span class="reel__num">05<span class="reel__of"> / 05</span></span>
+              <h3 class="reel__name"><a href="/work/city-rental">City Rental</a></h3>
+              <p class="reel__type">Bike &amp; car rental</p>
+            </div>
+            <p class="reel__desc">A rental site built around the brand's red-and-white shield badge.</p>
+            <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
+            <span class="project__links"><a class="link" href="/work/city-rental">Case study</a>
+            <a class="link link--quiet" href="https://cityrental.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> (opens in a new tab)</span></a></span>
           </div>
         </li>
         </ol>
@@ -308,10 +336,10 @@
     <section class="brands" aria-label="Brands we've built for">
       <p class="label">Brands we've built for</p>
       <ul>
-        <li><a href="/work/city-rental" data-preview="/assets/video/city-rental.mp4" aria-label="City Rental case study"><img src="/assets/img/brands/city-rental-strip.jpg" alt="" width="720" height="678" loading="lazy" decoding="async"></a></li>
-        <li><a href="/work/titan-studios" data-preview="/assets/video/titan-studios.mp4" aria-label="Titan Studios case study"><img src="/assets/img/brands/titan-studios-strip.jpg" alt="" width="720" height="330" loading="lazy" decoding="async"></a></li>
         <li><a href="/work/hook-media" data-preview="/assets/video/hook-media.mp4" aria-label="Hook Media Management case study"><img class="is-dark" src="/assets/img/brands/hook-media.jpg" alt="" width="720" height="647" loading="lazy" decoding="async"></a></li>
+        <li><a href="/work/titan-studios" data-preview="/assets/video/titan-studios.mp4" aria-label="Titan Studios case study"><img src="/assets/img/brands/titan-studios-strip.jpg" alt="" width="720" height="330" loading="lazy" decoding="async"></a></li>
         <li><a href="/work/growmedex" data-preview="/assets/video/growmedex.mp4" aria-label="GrowMedex case study"><img src="/assets/img/brands/growmedex-strip.jpg" alt="" width="617" height="328" loading="lazy" decoding="async"></a></li>
+        <li><a href="/work/city-rental" data-preview="/assets/video/city-rental.mp4" aria-label="City Rental case study"><img src="/assets/img/brands/city-rental-strip.jpg" alt="" width="720" height="678" loading="lazy" decoding="async"></a></li>
       </ul>
     </section>
 
@@ -324,16 +352,20 @@
       </div>
       <ul class="services__list">
         <li class="service">
-          <h3 class="service__name">Business websites</h3>
-          <p class="service__desc">Company and brand sites, designed around your logo, your audience and your city, not a template.</p>
+          <h3 class="service__name">Roster &amp; portfolio sites</h3>
+          <p class="service__desc">Talent rosters that brands can filter, compare and shortlist, like the one we built for Hook Media Management.</p>
         </li>
         <li class="service">
-          <h3 class="service__name">Bookings &amp; payments</h3>
-          <p class="service__desc">Online booking, Razorpay payments and a simple admin panel, for rentals, studios and services.</p>
+          <h3 class="service__name">Dashboards &amp; internal tools</h3>
+          <p class="service__desc">Creator and client dashboards with secure logins, like the CRM Hook uses to share brand deals fairly.</p>
         </li>
         <li class="service">
-          <h3 class="service__name">Redesigns</h3>
-          <p class="service__desc">Taking an existing site that looks dated or loads slowly and rebuilding it properly.</p>
+          <h3 class="service__name">Agency &amp; brand websites</h3>
+          <p class="service__desc">Sites for agencies, studios and companies, designed around your logo and your audience, not a template.</p>
+        </li>
+        <li class="service">
+          <h3 class="service__name">Bookings &amp; enquiries</h3>
+          <p class="service__desc">Booking and enquiry flows, with Razorpay payments and a simple admin panel where you need them.</p>
         </li>
         <li class="service">
           <h3 class="service__name">Launch &amp; care</h3>
@@ -347,6 +379,7 @@
       <div class="section__head">
         <p class="label">03 · Process</p>
         <h2 class="heading" id="process-title"><span class="line"><span>How a project runs</span></span></h2>
+        <p class="process__time">Typically 10–12 days for portfolio and showcase sites, and 15–20 days for sites with a backend or database, like online stores.</p>
       </div>
       <!-- Steps: one screen. On desktop the section pins briefly while a gold line runs through the five steps. -->
       <div class="steps">
@@ -437,6 +470,6 @@
 
   <script src="/assets/vendor/gsap.min.js?v=3.13.0" defer></script>
   <script src="/assets/vendor/ScrollTrigger.min.js?v=3.13.0" defer></script>
-  <script src="/assets/js/main.js?v=3.8.0" defer></script>
+  <script src="/assets/js/main.js?v=3.10.0" defer></script>
 </body>
 </html>
