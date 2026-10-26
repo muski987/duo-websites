@@ -443,7 +443,6 @@ ol, ul { padding: 0; list-style: none; }
 
 /* Desktop: the section holds the screen while the line runs. */
 @media (min-width: 821px) {
-  .process.is-pinned { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
 }
 
 /* Phone: the steps stack and the line runs down the left. */

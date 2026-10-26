@@ -267,21 +267,20 @@
       steps.forEach(function (s, i) { s.classList.toggle('is-on', p >= i / steps.length + 0.02); });
     }
 
+    // Desktop: the line runs across as the steps scroll through. No pin, so the section is only ever on
+    // screen once (a pinned copy showed up twice in scrolled screenshots).
     var mm = gsap.matchMedia();
     mm.add('(min-width: 821px)', function () {
-      section.classList.add('is-pinned');
       ScrollTrigger.create({
-        trigger: section,
-        start: 'top top',
-        end: '+=90%',
-        pin: true,
+        trigger: box,
+        start: 'top 80%',
+        end: 'bottom 45%',
         scrub: 0.6,
         onUpdate: function (self) {
           gsap.set(fill, { scaleX: self.progress });
           light(self.progress);
         }
       });
-      return function () { section.classList.remove('is-pinned'); };
     });
     mm.add('(max-width: 820px)', function () {
       ScrollTrigger.create({
