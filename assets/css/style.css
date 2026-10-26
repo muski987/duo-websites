@@ -378,7 +378,7 @@ ol, ul { padding: 0; list-style: none; }
 }
 .service__desc { color: var(--muted); max-width: 30em; }
 
-/* ---------- process: five steps on one screen ---------- */
+/* ---------- process: six steps ---------- */
 
 .steps { position: relative; padding-top: 6px; }
 .steps__line {
@@ -397,7 +397,7 @@ ol, ul { padding: 0; list-style: none; }
 }
 .steps__list {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(20px, 2.6vw, 40px);
   list-style: none;
 }
