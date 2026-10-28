@@ -913,7 +913,7 @@ ol, ul { padding: 0; list-style: none; }
   .hero__media video { object-fit: contain; background: #000; }
 }
 
-/* ---------- v3.0: light cream theme (Keshav picked mockup B) ---------- */
+/* ---------- v3.0: light cream theme ---------- */
 
 /* Nav: links left, DUO in the centre, place and a pill button on the right. */
 .nav {
@@ -967,7 +967,7 @@ ol, ul { padding: 0; list-style: none; }
 .hero__caption { color: #f3efe7; }
 .hero__media::after { background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 45%); }
 
-/* Rounded media, like the mockup. */
+/* Rounded media. */
 
 .reel__card { border-radius: 16px; border-color: var(--line); }
 .case-media img,
@@ -1002,7 +1002,7 @@ ol, ul { padding: 0; list-style: none; }
 .case-media .project__media { aspect-ratio: 1280 / 606; }
 .reel__video { object-position: center; }
 
-/* ---------- v3.3: a calmer type scale (Keshav: text felt too big) ---------- */
+/* ---------- v3.3: a calmer type scale ---------- */
 
 body { font-size: clamp(15px, 0.2vw + 13.6px, 17px); }
 .hero__mark { font-size: min(30vw, 44svh); }
