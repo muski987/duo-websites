@@ -26,8 +26,6 @@
 
   var hero = document.querySelector('.hero');
   if (hero) {
-    // The scroll scene is set up first so the pin spacing exists before any #anchor jump.
-    heroScrollScene();
     playIntro(function () {});
   } else {
     gsap.set('.nav', { opacity: 1 });
@@ -171,64 +169,6 @@
         .to(loader.querySelector('.loader__inner'), { yPercent: -40, opacity: 0, duration: 0.5, ease: 'power2.in' }, '+=0.15')
         .to(loader, { clipPath: 'inset(0% 0% 100% 0%)', duration: 0.9, ease: 'expo.inOut' }, '-=0.2')
         .add(function () { heroIn(); }, '-=0.45');
-    }
-  }
-
-  // Scrolling away from the hero: D and O slide off the sides, U sinks and fades,
-  // the gold line stretches across, and the founders' photo/video comes up behind.
-  function heroScrollScene() {
-    var heroEl = document.querySelector('.hero');
-    var clips = gsap.utils.toArray('.hero__clip');
-    var rule = document.querySelector('.hero__rule');
-    var base = document.querySelector('.hero__base');
-    var media = document.querySelector('.hero__media');
-    var caption = document.querySelector('.hero__caption');
-    var small = window.matchMedia('(max-width: 820px)').matches;
-
-    // The video only downloads and plays once the letters start moving away.
-    var video = media && media.querySelector('video');
-    var heroOnScreen = true;
-    var lastProgress = 0;
-    function syncVideo(self) {
-      if (!video) return;
-      if (self) lastProgress = self.progress;
-      var visible = lastProgress > 0.2 && heroOnScreen;
-      if (visible && video.paused) video.play().catch(function () {});
-      if (!visible && !video.paused) video.pause();
-    }
-    if (video && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        heroOnScreen = entries[0].isIntersecting;
-        syncVideo();
-      }).observe(heroEl);
-    }
-
-    var tl = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: {
-        trigger: heroEl,
-        start: 'top top',
-        end: small ? '+=110%' : '+=160%',
-        scrub: 0.8,
-        pin: true,
-        invalidateOnRefresh: true,
-        onUpdate: syncVideo
-      }
-    });
-
-    tl.to(clips[0], { x: function () { return -(clips[0].offsetLeft + clips[0].offsetWidth + 40); }, ease: 'power2.in', duration: 1 }, 0)
-      .to(clips[2], { x: function () { return heroEl.offsetWidth - clips[2].offsetLeft + 40; }, ease: 'power2.in', duration: 1 }, 0)
-      .to(clips[1], { yPercent: 70, opacity: 0, ease: 'power1.in', duration: 1 }, 0)
-      .fromTo(rule, { scaleX: 1 }, { scaleX: function () { return base.offsetWidth / rule.offsetWidth; }, duration: 0.8, immediateRender: false }, 0)
-      .fromTo('.hero__tag', { opacity: 1 }, { opacity: 0, duration: 0.4, immediateRender: false }, 0)
-      .fromTo(['.hero__label', '.hero__foot'], { opacity: 1, y: 0 }, { opacity: 0, y: -30, duration: 0.5, immediateRender: false }, 0);
-
-    if (media) {
-      tl.fromTo(media, { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power1.out', immediateRender: false }, 0.5)
-        .to(rule, { opacity: 0, duration: 0.3 }, 1.1);
-    }
-    if (caption) {
-      tl.fromTo(caption, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, 1.15);
     }
   }
 

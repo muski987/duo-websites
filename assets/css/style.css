@@ -701,47 +701,9 @@ ol, ul { padding: 0; list-style: none; }
   }
 }
 
-/* ---------- hero reveal: founders photo / video behind the letters ---------- */
+/* ---------- hero ---------- */
 
 .hero { position: relative; overflow: hidden; }
-.hero > :not(.hero__media) { position: relative; z-index: 1; }
-
-.hero__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0;
-}
-.hero__media img,
-.hero__media video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Black and white keeps any photo or phone video inside the DUO palette. */
-  filter: grayscale(1) contrast(1.08) brightness(0.8);
-}
-.hero__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0) 45%);
-}
-
-.hero__caption {
-  position: absolute !important;
-  left: var(--pad);
-  bottom: clamp(28px, 6vh, 64px);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  opacity: 0;
-  font-size: clamp(16px, 1.2vw, 20px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__media,
-  .hero__caption { display: none; }
-}
 
 /* ---------- client logos (white knock-outs of each client's own mark) ---------- */
 
@@ -769,7 +731,6 @@ ol, ul { padding: 0; list-style: none; }
 
 .nav { transition: background-color 0.3s, border-color 0.3s; border-bottom: 1px solid transparent; }
 .nav.is-solid { background: var(--ink); border-bottom-color: var(--line); }
-.hero__media video { filter: grayscale(1) contrast(1.05) brightness(0.62); }
 
 /* ---------- v1.7: work panels show each client's logo instead of a screenshot ---------- */
 
@@ -905,14 +866,6 @@ ol, ul { padding: 0; list-style: none; }
 
 }
 
-/* ---------- v2.1: the hero reel is shown in its own colours ---------- */
-
-.hero__media video { filter: none; }
-/* On a tall phone screen, cover would cut the reel's words off at the sides. */
-@media (max-aspect-ratio: 1/1) {
-  .hero__media video { object-fit: contain; background: #000; }
-}
-
 /* ---------- v3.0: light cream theme ---------- */
 
 /* Nav: links left, DUO in the centre, place and a pill button on the right. */
@@ -963,9 +916,6 @@ ol, ul { padding: 0; list-style: none; }
   color: var(--ink);
 }
 
-/* Words shown over the hero video stay light. */
-.hero__caption { color: #f3efe7; }
-.hero__media::after { background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 45%); }
 
 /* Rounded media. */
 
@@ -1304,3 +1254,6 @@ body { font-size: clamp(15px, 0.2vw + 13.6px, 17px); }
 .work-group__title { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.6vw, 40px); letter-spacing: -0.03em; }
 .work-switch { margin-top: clamp(28px, 4vw, 48px); color: var(--muted); }
 .work--page { padding-bottom: clamp(24px, 4vw, 56px); }
+
+/* v3.18: the header sits at the top of the page and scrolls away with it. */
+.nav { position: absolute; }
