@@ -28,7 +28,7 @@
 
   <link rel="preload" href="/assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css?v=3.16.0">
+  <link rel="stylesheet" href="/assets/css/style.css?v=3.17.0">
 
   <script>
     (function (c) {
@@ -278,7 +278,7 @@
     <a class="nav__logo" href="#top" aria-label="DUO, back to top">DUO</a>
     <nav class="nav__links" aria-label="Main">
       <a href="#work">Work</a>
-      <a href="#services">Services</a>
+      <a href="/websites">Websites</a>
       <a href="/crm-and-internal-tools">CRMs &amp; tools</a>
       <a href="#process">Process</a>
       <a href="#studio">Studio</a>
@@ -294,7 +294,7 @@
   <div class="menu" id="menu" hidden>
     <nav aria-label="Mobile">
       <a href="#work">Work</a>
-      <a href="#services">Services</a>
+      <a href="/websites">Websites</a>
       <a href="/crm-and-internal-tools">CRMs &amp; tools</a>
       <a href="#process">Process</a>
       <a href="#studio">Studio</a>
@@ -346,9 +346,14 @@
         <span class="rule" aria-hidden="true"></span>
       </div>
 
-      <!-- Work: all seven projects stacked down the page, each card beside its details and links. -->
-      <div class="reel" aria-label="Selected work">
-        <ol class="reel__list">
+      <!-- Work, in two groups: websites, then CRMs and internal tools. Each group has its own page. -->
+      <div class="work-group" aria-labelledby="work-web-title">
+        <div class="work-group__head">
+          <h3 class="work-group__title" id="work-web-title">Websites</h3>
+          <a class="link" href="/websites">All website work</a>
+        </div>
+        <div class="reel">
+          <ol class="reel__list">
         <li class="reel__item" style="--brand-bg: #000000; --glow: #deb075">
           <a class="reel__card" href="/work/hook-media" aria-label="Hook Media Management case study" tabindex="-1">
             <span class="reel__logo"><img src="/assets/img/brands/hook-media.webp" alt="" width="720" height="647" loading="lazy" decoding="async"></span>
@@ -356,8 +361,8 @@
           </a>
           <div class="reel__info">
             <div class="reel__head">
-              <span class="reel__num">01<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="/work/hook-media">Hook Media Management</a></h3>
+              <span class="reel__num">01<span class="reel__of"> / 05</span></span>
+              <h4 class="reel__name"><a href="/work/hook-media">Hook Media Management</a></h4>
               <p class="reel__type">Creator &amp; influencer management</p>
             </div>
             <p class="reel__desc">A roster of tech creators that brands can filter, compare and shortlist for a campaign.</p>
@@ -367,6 +372,83 @@
             <a class="link link--quiet" href="https://hookmgmt.in" target="_blank" rel="noopener">Visit hookmgmt.in<span class="sr"> (opens in a new tab)</span></a></span>
           </div>
         </li>
+        <li class="reel__item" style="--brand-bg: #efefef; --glow: #c8102e">
+          <a class="reel__card" href="/work/titan-studios" aria-label="Titan Studios case study" tabindex="-1">
+            <span class="reel__logo"><img src="/assets/img/brands/titan-studios.webp" alt="" width="720" height="330" loading="lazy" decoding="async"></span>
+            <video class="reel__video" muted loop playsinline preload="none" data-src="/assets/video/titan-studios.mp4"></video>
+          </a>
+          <div class="reel__info">
+            <div class="reel__head">
+              <span class="reel__num">02<span class="reel__of"> / 05</span></span>
+              <h4 class="reel__name"><a href="/work/titan-studios">Titan Studios</a></h4>
+              <p class="reel__type">Film production</p>
+            </div>
+            <p class="reel__desc">A cinematic site themed on the studio's black-and-white logo, with a single red accent.</p>
+            <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
+            <span class="project__links"><a class="link" href="/work/titan-studios">Case study<span class="sr">: Titan Studios</span></a>
+            <a class="link link--quiet" href="https://titanstudios.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> of Titan Studios (opens in a new tab)</span></a></span>
+          </div>
+        </li>
+        <li class="reel__item" style="--brand-bg: #fefefe; --glow: #3f9b3c">
+          <a class="reel__card" href="/work/growmedex" aria-label="GrowMedex case study" tabindex="-1">
+            <span class="reel__logo"><img src="/assets/img/brands/growmedex.webp" alt="" width="617" height="328" loading="lazy" decoding="async"></span>
+            <video class="reel__video" muted loop playsinline preload="none" data-src="/assets/video/growmedex.mp4"></video>
+          </a>
+          <div class="reel__info">
+            <div class="reel__head">
+              <span class="reel__num">03<span class="reel__of"> / 05</span></span>
+              <h4 class="reel__name"><a href="/work/growmedex">GrowMedex</a></h4>
+              <p class="reel__type">Pharmaceutical export</p>
+            </div>
+            <p class="reel__desc">A catalogue of 600+ products for a pharmaceutical export company, sorted by dosage form and therapy.</p>
+            <p class="project__status"><span class="dot dot--live" aria-hidden="true"></span>Live · 2026</p>
+            <span class="project__links"><a class="link" href="/work/growmedex">Case study<span class="sr">: GrowMedex</span></a>
+            <a class="link link--quiet" href="https://growmedex.com" target="_blank" rel="noopener">Visit growmedex.com<span class="sr"> (opens in a new tab)</span></a></span>
+          </div>
+        </li>
+        <li class="reel__item" style="--brand-bg: #f2f2f2; --glow: #b3202d">
+          <a class="reel__card" href="/work/city-rental" aria-label="City Rental case study" tabindex="-1">
+            <span class="reel__logo"><img src="/assets/img/brands/city-rental.webp" alt="" width="720" height="678" loading="lazy" decoding="async"></span>
+            <video class="reel__video" muted loop playsinline preload="none" data-src="/assets/video/city-rental.mp4"></video>
+          </a>
+          <div class="reel__info">
+            <div class="reel__head">
+              <span class="reel__num">04<span class="reel__of"> / 05</span></span>
+              <h4 class="reel__name"><a href="/work/city-rental">City Rental</a></h4>
+              <p class="reel__type">Bike &amp; car rental</p>
+            </div>
+            <p class="reel__desc">A rental site built around the brand's red-and-white shield badge.</p>
+            <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
+            <span class="project__links"><a class="link" href="/work/city-rental">Case study<span class="sr">: City Rental</span></a>
+            <a class="link link--quiet" href="https://cityrental.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> of City Rental (opens in a new tab)</span></a></span>
+          </div>
+        </li>
+        <li class="reel__item" style="--brand-bg: #ece6dc; --glow: #b9a58a">
+          <a class="reel__card" href="https://studio-aesthetic.netlify.app/" target="_blank" rel="noopener" aria-label="Studio Aesthetic demo (opens in a new tab)" tabindex="-1">
+            <span class="reel__logo"><span class="reel__wordmark">Studio Aesthetic</span></span>
+          </a>
+          <div class="reel__info">
+            <div class="reel__head">
+              <span class="reel__num">05<span class="reel__of"> / 05</span></span>
+              <h4 class="reel__name"><a href="https://studio-aesthetic.netlify.app/" target="_blank" rel="noopener">Studio Aesthetic<span class="sr"> (opens in a new tab)</span></a></h4>
+              <p class="reel__type">Interior design studio</p>
+            </div>
+            <p class="reel__desc">A site for an interior design studio working on homes, offices and commercial spaces, with a before-and-after slider and a consultation form that asks about the space and budget.</p>
+            <p class="project__status"><span class="dot" aria-hidden="true"></span>Design demo</p>
+            <span class="project__links"><a class="link link--quiet" href="https://studio-aesthetic.netlify.app/" target="_blank" rel="noopener">View the demo<span class="sr"> of Studio Aesthetic (opens in a new tab)</span></a></span>
+          </div>
+        </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="work-group" aria-labelledby="work-tools-title">
+        <div class="work-group__head">
+          <h3 class="work-group__title" id="work-tools-title">CRMs &amp; internal tools</h3>
+          <a class="link" href="/crm-and-internal-tools">All CRM &amp; tools work</a>
+        </div>
+        <div class="reel">
+          <ol class="reel__list">
         <li class="reel__item" style="--brand-bg: #000000; --glow: #7c83f5">
           <a class="reel__card" href="/work/hook-creator-collabs" aria-label="Hook Creator Collabs case study" tabindex="-1">
             <picture>
@@ -376,8 +458,8 @@
           </a>
           <div class="reel__info">
             <div class="reel__head">
-              <span class="reel__num">02<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="/work/hook-creator-collabs">Hook Creator Collabs</a></h3>
+              <span class="reel__num">01<span class="reel__of"> / 02</span></span>
+              <h4 class="reel__name"><a href="/work/hook-creator-collabs">Hook Creator Collabs</a></h4>
               <p class="reel__type">Internal tool · CRM · Dashboard · Supabase · Vercel</p>
             </div>
             <p class="reel__desc">Some creators at Hook were getting most of the brand deals while others went weeks without one. We built a CRM that logs every collab and flags who's falling behind.</p>
@@ -395,8 +477,8 @@
           </a>
           <div class="reel__info">
             <div class="reel__head">
-              <span class="reel__num">03<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="/work/hook-creator-admin">Hook Creator Admin</a></h3>
+              <span class="reel__num">02<span class="reel__of"> / 02</span></span>
+              <h4 class="reel__name"><a href="/work/hook-creator-admin">Hook Creator Admin</a></h4>
               <p class="reel__type">Internal tool · Admin dashboard · Instagram API · Supabase · Netlify</p>
             </div>
             <p class="reel__desc">Hook needed a developer every time a creator joined the website. Now the team adds creators and brands themselves, and they show up on hookmgmt.in within seconds.</p>
@@ -405,73 +487,8 @@
             <span class="project__links"><a class="link" href="/work/hook-creator-admin">Case study<span class="sr">: Hook Creator Admin</span></a></span>
           </div>
         </li>
-        <li class="reel__item" style="--brand-bg: #efefef; --glow: #c8102e">
-          <a class="reel__card" href="/work/titan-studios" aria-label="Titan Studios case study" tabindex="-1">
-            <span class="reel__logo"><img src="/assets/img/brands/titan-studios.webp" alt="" width="720" height="330" loading="lazy" decoding="async"></span>
-            <video class="reel__video" muted loop playsinline preload="none" data-src="/assets/video/titan-studios.mp4"></video>
-          </a>
-          <div class="reel__info">
-            <div class="reel__head">
-              <span class="reel__num">04<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="/work/titan-studios">Titan Studios</a></h3>
-              <p class="reel__type">Film production</p>
-            </div>
-            <p class="reel__desc">A cinematic site themed on the studio's black-and-white logo, with a single red accent.</p>
-            <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
-            <span class="project__links"><a class="link" href="/work/titan-studios">Case study<span class="sr">: Titan Studios</span></a>
-            <a class="link link--quiet" href="https://titanstudios.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> of Titan Studios (opens in a new tab)</span></a></span>
-          </div>
-        </li>
-        <li class="reel__item" style="--brand-bg: #fefefe; --glow: #3f9b3c">
-          <a class="reel__card" href="/work/growmedex" aria-label="GrowMedex case study" tabindex="-1">
-            <span class="reel__logo"><img src="/assets/img/brands/growmedex.webp" alt="" width="617" height="328" loading="lazy" decoding="async"></span>
-            <video class="reel__video" muted loop playsinline preload="none" data-src="/assets/video/growmedex.mp4"></video>
-          </a>
-          <div class="reel__info">
-            <div class="reel__head">
-              <span class="reel__num">05<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="/work/growmedex">GrowMedex</a></h3>
-              <p class="reel__type">Pharmaceutical export</p>
-            </div>
-            <p class="reel__desc">A catalogue of 600+ products for a pharmaceutical export company, sorted by dosage form and therapy.</p>
-            <p class="project__status"><span class="dot dot--live" aria-hidden="true"></span>Live · 2026</p>
-            <span class="project__links"><a class="link" href="/work/growmedex">Case study<span class="sr">: GrowMedex</span></a>
-            <a class="link link--quiet" href="https://growmedex.com" target="_blank" rel="noopener">Visit growmedex.com<span class="sr"> (opens in a new tab)</span></a></span>
-          </div>
-        </li>
-        <li class="reel__item" style="--brand-bg: #f2f2f2; --glow: #b3202d">
-          <a class="reel__card" href="/work/city-rental" aria-label="City Rental case study" tabindex="-1">
-            <span class="reel__logo"><img src="/assets/img/brands/city-rental.webp" alt="" width="720" height="678" loading="lazy" decoding="async"></span>
-            <video class="reel__video" muted loop playsinline preload="none" data-src="/assets/video/city-rental.mp4"></video>
-          </a>
-          <div class="reel__info">
-            <div class="reel__head">
-              <span class="reel__num">06<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="/work/city-rental">City Rental</a></h3>
-              <p class="reel__type">Bike &amp; car rental</p>
-            </div>
-            <p class="reel__desc">A rental site built around the brand's red-and-white shield badge.</p>
-            <p class="project__status"><span class="dot" aria-hidden="true"></span>Demo approved · in development</p>
-            <span class="project__links"><a class="link" href="/work/city-rental">Case study<span class="sr">: City Rental</span></a>
-            <a class="link link--quiet" href="https://cityrental.vercel.app" target="_blank" rel="noopener">View the demo<span class="sr"> of City Rental (opens in a new tab)</span></a></span>
-          </div>
-        </li>
-        <li class="reel__item" style="--brand-bg: #ece6dc; --glow: #b9a58a">
-          <a class="reel__card" href="https://studio-aesthetic.netlify.app/" target="_blank" rel="noopener" aria-label="Studio Aesthetic demo (opens in a new tab)" tabindex="-1">
-            <span class="reel__logo"><span class="reel__wordmark">Studio Aesthetic</span></span>
-          </a>
-          <div class="reel__info">
-            <div class="reel__head">
-              <span class="reel__num">07<span class="reel__of"> / 07</span></span>
-              <h3 class="reel__name"><a href="https://studio-aesthetic.netlify.app/" target="_blank" rel="noopener">Studio Aesthetic<span class="sr"> (opens in a new tab)</span></a></h3>
-              <p class="reel__type">Interior design studio</p>
-            </div>
-            <p class="reel__desc">A site for an interior design studio working on homes, offices and commercial spaces, with a before-and-after slider and a consultation form that asks about the space and budget.</p>
-            <p class="project__status"><span class="dot" aria-hidden="true"></span>Design demo</p>
-            <span class="project__links"><a class="link link--quiet" href="https://studio-aesthetic.netlify.app/" target="_blank" rel="noopener">View the demo<span class="sr"> of Studio Aesthetic (opens in a new tab)</span></a></span>
-          </div>
-        </li>
-        </ol>
+          </ol>
+        </div>
       </div>
 
       <div class="work-cta">
@@ -506,6 +523,7 @@
           </div>
           <div>
             <p class="service__desc">For when customers can't see what you offer without calling or messaging you. A site built around your brand that shows your work or products and takes enquiries and bookings, like the 600+ product catalogue we built for GrowMedex.</p>
+            <a class="link service__more" href="/websites">Website work</a>
           </div>
         </li>
         <li class="service">

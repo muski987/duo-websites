@@ -1290,3 +1290,17 @@ body { font-size: clamp(15px, 0.2vw + 13.6px, 17px); }
   .nav__links, .nav__end { display: none; }
   .nav__toggle { display: block; }
 }
+
+/* v3.17: websites and CRMs/tools are separate groups on the home page, each with its own page. */
+.work-group + .work-group { margin-top: clamp(56px, 8vw, 120px); }
+.work-group__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 32px;
+  padding-bottom: clamp(16px, 2vw, 24px);
+}
+.work-group__title { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.6vw, 40px); letter-spacing: -0.03em; }
+.work-switch { margin-top: clamp(28px, 4vw, 48px); color: var(--muted); }
+.work--page { padding-bottom: clamp(24px, 4vw, 56px); }
